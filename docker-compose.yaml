@@ -1,0 +1,10 @@
+services:
+  app:
+    image: fin-cat-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - fin-cat-data:/data
+
+volumes:
+  fin-cat-data:
