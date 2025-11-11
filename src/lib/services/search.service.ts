@@ -14,8 +14,11 @@ export const initializeFuse = (videos: YouTubeVideo[]) => {
 };
 
 export const searchVideos = (query: string): YouTubeVideo[] => {
-  if (!fuse || !query) {
+  if (!fuse) {
     return [];
+  }
+  if (!query) {
+    return fuse.getIndex().docs; // Return all documents when query is empty
   }
   return fuse.search(query).map((result) => result.item);
 };
